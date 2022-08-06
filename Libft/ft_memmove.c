@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 15:06:14 by susong            #+#    #+#             */
-/*   Updated: 2022/08/06 21:10:55 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/06 22:49:01 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@ void	*ft_memmove(void *dest, const void *source, size_t n)
 		return (dest);
 	a = (unsigned char *)dest;
 	b = (unsigned char *)source;
-	if (dest - source < 0)
+	if (dest > source)
 	{
 		while (n--)
-			*(a + n - 1) = *(b + n - 1);
-		return (dest);
+			*(a + n) = *(b + n);
 	}
 	else
 	{
 		while (n--)
 			*a++ = *b++;
-		return (dest);
 	}
+	return (dest);
 }

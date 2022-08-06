@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/06 21:06:33 by susong            #+#    #+#              #
-#    Updated: 2022/08/06 21:20:37 by susong           ###   ########.fr        #
+#    Updated: 2022/08/06 21:57:48 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	ft_bzero.c \
 			ft_strchr.c \
 			ft_strlcpy.c \
 			ft_strlen.c \
+			ft_strrchr.c \
 			ft_tolower.c \
 			ft_toupper.c
 OBJS	= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 18:57:04 by susong            #+#    #+#             */
-/*   Updated: 2022/08/06 19:50:46 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/06 22:53:04 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ size_t	ft_strlcpy(char *dest, const char *source, size_t size)
 {
 	int	i;
 
-	i = 0;
 	if (!(dest || source))
 		return (0);
-	if (size != 0){
-		while (dest[i] && size--)
+	i = 0;
+	if (size != 0)
+	{
+		while (source[i] && --size)
 		{
 			dest[i] = source[i];
 			i++;

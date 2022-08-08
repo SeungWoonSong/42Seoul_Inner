@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 19:51:04 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 14:12:00 by susong           ###   ########.fr       */
+/*   Created: 2022/08/08 12:42:00 by susong            #+#    #+#             */
+/*   Updated: 2022/08/08 12:50:54 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+char	*ft_strdup(const char *s1)
 {
-	int	dst_len;
-	int	src_len;
-	int	result;
+	char	*result;
+	int		length;
 
-	dst_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	result = dst_len + src_len;
-	if (dst_len >= (int)size)
-		return (src_len + (int)size);
-	else if ((int)size < src_len + dst_len + 1)
+	length = 0;
+	result = malloc(ft_strlen(s1) + 1);
+	if (!result)
+		return (0);
+	while (s1 && s1[length])
 	{
-		src_len = size - dst_len - 1;
-		if (src_len < 0)
-			src_len = 0;
+		result[length] = s1[length];
+		length++;
 	}
-	while ((dst_len < result) && src_len--)
-		dest[dst_len++] = *(src++);
-	dest[dst_len] = '\0';
+	result[length] = '\0';
 	return (result);
 }

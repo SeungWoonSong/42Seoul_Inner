@@ -2,7 +2,6 @@
 
 int main()
 {
-	char a[] = " helloworld it is show time";
-	printf("test");
-	printf("%s", ft_strrchr(a, 'w'));
+	char a[] = "hello world";
+	printf("%d",ft_strlen(a));
 }

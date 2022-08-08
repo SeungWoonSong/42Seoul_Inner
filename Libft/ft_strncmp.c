@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 14:12:24 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 15:50:23 by susong           ###   ########.fr       */
+/*   Created: 2022/08/08 14:29:14 by susong            #+#    #+#             */
+/*   Updated: 2022/08/08 14:57:42 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	little_size;
-	size_t	big_size;
+	size_t			length;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	if (*little == 0)
-		return ((char *)big);
-	else if (len == 0)
-		return (0);
-	big_size = ft_strlen(big);
-	little_size = ft_strlen(little);
-	if (len > big_size)
-		len = big_size;
-	while (len-- - little_size + 1 && *big)
+	length = -1;
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	while (++length < n)
 	{
-		if (ft_strncmp(big, little, little_size) == 0)
-			return ((char *)big);
-		big++;
+		if ((p1[length] != p2[length]) || (!(p1[length] && p2[length])))
+			return (p1[length] - p2[length]);
 	}
 	return (0);
 }

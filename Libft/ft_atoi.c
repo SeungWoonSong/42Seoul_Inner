@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 14:12:24 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 15:50:23 by susong           ###   ########.fr       */
+/*   Created: 2022/08/08 15:52:50 by susong            #+#    #+#             */
+/*   Updated: 2022/08/08 16:11:01 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int	ft_atoi(const char *str)
 {
-	size_t	little_size;
-	size_t	big_size;
+	int	result;
+	int	length;
 
-	if (*little == 0)
-		return ((char *)big);
-	else if (len == 0)
+	length = 0;
+	result = 0;
+	if (!str)
 		return (0);
-	big_size = ft_strlen(big);
-	little_size = ft_strlen(little);
-	if (len > big_size)
-		len = big_size;
-	while (len-- - little_size + 1 && *big)
+	while (length++ < ft_strlen(str))
 	{
-		if (ft_strncmp(big, little, little_size) == 0)
-			return ((char *)big);
-		big++;
+		result = result * 10 + (str[length - 1] - 48);
 	}
-	return (0);
+	return (result);
 }

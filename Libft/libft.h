@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 16:14:12 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 15:53:33 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/08 17:03:30 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strtrim(char const *s1, char const *set);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *source, size_t n);
 void	*ft_memmove(void *dest, const void *source, size_t n);

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 15:52:50 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 16:26:56 by susong           ###   ########.fr       */
+/*   Created: 2022/08/08 17:02:59 by susong            #+#    #+#             */
+/*   Updated: 2022/08/08 18:01:49 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int find_start(char const *s1, char const *set)
 {
-	int	result;
-	int	sign;
 
-	result = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (ft_isdigit(*str))
-		result = result * 10 + (*str++ - 48);
-	return (result * sign);
+}
+
+int find_end(char const *s1, char const *set)
+{
+
+}
+
+
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char *result;
+
+	if (!(s1 && set))
+		return (0);
+
 }

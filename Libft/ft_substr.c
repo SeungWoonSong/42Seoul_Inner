@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/08 15:52:50 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 16:26:56 by susong           ###   ########.fr       */
+/*   Created: 2022/08/08 16:33:41 by susong            #+#    #+#             */
+/*   Updated: 2022/08/08 16:49:10 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	result;
-	int	sign;
+	char	*result;
+	size_t	i;
+	size_t	j;
 
-	result = 0;
-	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	j = 0;
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(result))
+		return (0);
+	while (s[i])
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (i >= start && j < len)
+		{
+			result[j] = s[i];
+			j++;
+		}
+		i++;
 	}
-	while (ft_isdigit(*str))
-		result = result * 10 + (*str++ - 48);
-	return (result * sign);
+	result[j] = '\0';
+	return (result);
 }

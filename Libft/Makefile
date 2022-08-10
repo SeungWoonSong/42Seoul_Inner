@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/06 21:06:33 by susong            #+#    #+#              #
-#    Updated: 2022/08/08 17:02:33 by susong           ###   ########.fr        #
+#    Updated: 2022/08/10 15:54:27 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,21 @@ SRCS	=	ft_atoi.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_substr.c \
-			ft_strjoin.c
+			ft_strjoin.c \
+			ft_strnstr.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
+			ft_putstr_fd.c \
+			ft_putnbr_fd.c \
+			ft_strtrim.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 LIBC	= ar -rcs
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :

@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 17:02:59 by susong            #+#    #+#             */
-/*   Updated: 2022/08/10 15:56:56 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/10 15:58:34 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (result);
 	}
 	temp = 0;
-	result = (char *)malloc(sizeof(char) * (end - start));
+	result = (char *)malloc(sizeof(char) * (end - start + 2));
 	if (!result)
 		return (NULL);
 	while (start <= end)

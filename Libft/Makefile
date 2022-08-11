@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/06 21:06:33 by susong            #+#    #+#              #
-#    Updated: 2022/08/10 19:49:33 by susong           ###   ########.fr        #
+#    Updated: 2022/08/11 11:53:32 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,20 @@ SRCS	=	ft_atoi.c \
 			ft_putendl_fd.c \
 			ft_putstr_fd.c \
 			ft_putnbr_fd.c \
-			ft_strtrim.c
+			ft_strtrim.c \
+			ft_lstadd_front.c \
+			ft_lstadd_back.c
+SRCS_B	=   ft_lstadd_back.c \
+			ft_lstadd_front.c \
+			ft_lstclear.c \
+			ft_lstdelone.c \
+			ft_lstiter.c \
+			ft_lstlast.c \
+			ft_lstmap.c \
+			ft_lstnew.c \
+			ft_lstsize.c
 OBJS	= $(SRCS:.c=.o)
+OBJS_B	= $(SRCS_B:.c=.o)
 RM		= rm -f
 LIBC	= ar -rcs
 CC		= cc
@@ -59,12 +71,15 @@ $(NAME): ${OBJS}
 
 all: $(NAME)
 
+bonus: $(NAME) $(OBJS_B)
+	${LIBC} $(NAME) $(OBJS_B)
+
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(bonus)
 
 clean:
-	$(RM) -f $(OBJS)
+	$(RM) -f $(OBJS) $(OBJS_B)
 
 re: fclean all
 
-.PHONY: all clean fclean re .c.o
+.PHONY: all bonus clean fclean re .c.o

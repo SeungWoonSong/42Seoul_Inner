@@ -13,26 +13,25 @@
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 
-#include<stdio.h>
-#include<stdarg.h>
-#include<unistd.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-int		ft_printf(const char *s, ...);
-int		ft_print_c(va_list **ap);
-int		ft_print_s(va_list **ap);
-int		ft_print_p(va_list **ap);
-int		ft_print_d(va_list **ap);
-int		ft_print_i(va_list **ap);
-int		ft_print_u(va_list **ap);
-int		ft_print_x(va_list **ap);
-int		ft_print_X(va_list **ap);
-int		ft_write_arg(const char *s, va_list *ap);
-int		make_hex(int p, int length);
-int		make_hex2(int p, int length);
-char	*ft_itoa(int n);
-size_t	ft_strlen(const char *s);
-
-
+int ft_printf(const char *s, ...);
+int ft_print_c(va_list **ap);
+int ft_print_s(va_list **ap);
+int ft_print_p(va_list **ap);
+int ft_print_d(va_list **ap);
+int ft_print_i(va_list **ap);
+int ft_print_u(va_list **ap);
+int ft_print_x(va_list **ap);
+int ft_print_X(va_list **ap);
+int ft_write_arg(const char *s, va_list *ap);
+int make_hex(unsigned int p, int length);
+int make_hex2(unsigned int p, int length);
+char *ft_itoa_long(unsigned int n);
+char *ft_itoa(int n);
+size_t ft_strlen(const char *s);
 
 #endif

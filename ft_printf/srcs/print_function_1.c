@@ -12,9 +12,9 @@
 
 #include "../inc/ft_printf.h"
 
-int	ft_write_arg(const char *s, va_list *ap)
+int ft_write_arg(const char *s, va_list *ap)
 {
-	int	length;
+	int length;
 
 	length = 0;
 	if (s[1] == '%')
@@ -38,44 +38,54 @@ int	ft_write_arg(const char *s, va_list *ap)
 	return (length);
 }
 
-int	ft_print_c(va_list **ap)
+int ft_print_c(va_list **ap)
 {
-	unsigned char	temp;
-	int				print_size;
+	unsigned char temp;
+	int print_size;
 
 	print_size = 0;
 	temp = (unsigned char)va_arg(**ap, int);
 	print_size = write(1, &temp, 1);
-    return (print_size);
+	return (print_size);
 }
 
-int	ft_print_s(va_list **ap)
+int ft_print_s(va_list **ap)
 {
-	char	*temp;
-	int		print_size;
+	char *temp;
+	int print_size;
 
 	print_size = 0;
 	temp = (char *)va_arg(**ap, char *);
-	print_size = write(1, temp, ft_strlen(temp));
-    return (print_size);
+	if (!temp)
+		print_size = write(1, "(null)", 6);
+	else
+		print_size = write(1, temp, ft_strlen(temp));
+	return (print_size);
 }
 
-int	ft_print_p(va_list **ap)
+int ft_print_p(va_list **ap)
 {
-	int		length;
-	int		temp;
+	int length;
+	unsigned int temp;
 
-	temp = (int)va_arg(**ap, int);
-	write(1, "0x", 2);
-	length = make_hex(temp, length);
+	temp = (unsigned int)va_arg(**ap, unsigned int);
+	length = write(1, "0x", 2);
+	if (length == -1)
+		return (0);
+	if (temp == 0)
+	{
+		length += write(1, "0", 1);
+		return (length);
+	}
+	length += make_hex(temp, length);
 	return (length - 1);
 }
 
-int	ft_print_d(va_list **ap)
+int ft_print_d(va_list **ap)
 {
-	int		length;
-	char	*temp;
-	int		numtemp;
+	int length;
+	char *temp;
+	int numtemp;
 
 	length = 0;
 	numtemp = (int)va_arg(**ap, int);

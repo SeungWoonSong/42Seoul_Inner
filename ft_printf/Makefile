@@ -15,11 +15,14 @@ NAME	=	libftprintf.a
 SRCS	=	ft_printf.c \
 			srcs/print_function_1.c \
 			srcs/print_function_2.c \
+			srcs/print_function_3.c \
 			Lib/Lib1.c
+
 
 OBJS	=	ft_printf.o \
 			print_function_1.o \
 			print_function_2.o \
+			print_function_3.o \
 			Lib1.o
 
 INCLUDE	=	inc/ft_printf.h
@@ -27,7 +30,7 @@ INCLUDE	=	inc/ft_printf.h
 RM		= rm -f
 LIBC	= ar -rcs
 CC		= gcc
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 
 all: $(NAME)
@@ -35,9 +38,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 
 $(OBJS): $(SRCS) $(INCLUDE)
-	${CC} -c $(SRCS)
+	${CC} -c ${CFLAGS} $(SRCS)
 	${LIBC} $(NAME) $(OBJS)
-# 34번줄 ${CFLAGS} 넣기
 
 fclean: clean
 	$(RM) $(NAME)

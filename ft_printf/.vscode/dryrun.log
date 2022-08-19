@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/nouswong/Code/42Seoul_Inner/ft_printf'
+make: Nothing to be done for `all'.
+make: Leaving directory `/Users/nouswong/Code/42Seoul_Inner/ft_printf'
+ 

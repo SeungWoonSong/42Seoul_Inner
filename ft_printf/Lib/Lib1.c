@@ -12,9 +12,9 @@
 
 #include "../inc/ft_printf.h"
 
-int	ft_count(long n)
+int ft_count(long n)
 {
-	int	count;
+	int count;
 
 	count = 0;
 	if (n < 0)
@@ -27,7 +27,7 @@ int	ft_count(long n)
 	return (count);
 }
 
-char	*plusorminus(char *result, long n)
+char *plusorminus(char *result, long n)
 {
 	if (n < 0)
 		result = (char *)malloc(sizeof(char) * (ft_count(n) + 2));
@@ -52,12 +52,12 @@ char	*plusorminus(char *result, long n)
 	return (result);
 }
 
-char	*ft_itoa(int n)
+char *ft_itoa(int n)
 {
-	char	*result;
-	int		index;
-	int		temp;
-	long	n2;
+	char *result;
+	int index;
+	int temp;
+	long n2;
 
 	result = 0;
 	n2 = (long)n;
@@ -81,12 +81,41 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-size_t	ft_strlen(const char *s)
+size_t ft_strlen(const char *s)
 {
-	size_t	length;
+	size_t length;
 
 	length = 0;
 	while (s[length])
 		length++;
 	return (length);
+}
+
+char *ft_itoa_long(unsigned int n)
+{
+	char *result;
+	int index;
+	int temp;
+	unsigned int n2;
+
+	result = 0;
+	n2 = n;
+	result = plusorminus(result, n2);
+	if (!result)
+		return (NULL);
+	if (n2 == 0)
+		return (result);
+	if (n2 < 0)
+		index = ft_count(n2);
+	else
+		index = ft_count(n2) - 1;
+	if (n2 < 0)
+		n2 = n2 * -1;
+	temp = ft_count(n2);
+	while (temp-- > 0)
+	{
+		result[index--] = n2 % 10 + '0';
+		n2 = n2 / 10;
+	}
+	return (result);
 }

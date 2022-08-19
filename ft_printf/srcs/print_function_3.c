@@ -9,15 +9,16 @@
 /*   Updated: 2022/08/18 16:45:59 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../inc/ft_printf.h"
 
-int	make_hex2(int p, int length)
+int make_hex2(unsigned int p, int length)
 {
-	unsigned char	temp;
+	unsigned char temp;
 
 	temp = p % 16;
 	if (p / 16 > 0)
-		length = make_hex(p / 16, length);
-	if (temp >= 11)
+		length = make_hex2(p / 16, length);
+	if (temp >= 10)
 	{
 		temp += ('A' - 10);
 		write(1, &temp, 1);

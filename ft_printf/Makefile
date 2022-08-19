@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 12:49:38 by susong            #+#    #+#              #
-#    Updated: 2022/08/18 16:58:49 by susong           ###   ########.fr        #
+#    Updated: 2022/08/19 15:14:05 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,6 @@ fclean: clean
 
 clean:
 	$(RM) $(OBJS)
-
-test : re
-	gcc $(NAME) test.c
-
 
 re: fclean all
 

@@ -6,15 +6,15 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:49:03 by susong            #+#    #+#             */
-/*   Updated: 2022/08/18 14:02:08 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/19 15:16:30 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int ft_count(long n)
+int	ft_count(long n)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (n < 0)
@@ -27,7 +27,7 @@ int ft_count(long n)
 	return (count);
 }
 
-char *plusorminus(char *result, long n)
+char	*plusorminus(char *result, long n)
 {
 	if (n < 0)
 		result = (char *)malloc(sizeof(char) * (ft_count(n) + 2));
@@ -52,12 +52,12 @@ char *plusorminus(char *result, long n)
 	return (result);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *result;
-	int index;
-	int temp;
-	long n2;
+	char	*result;
+	int		index;
+	int		temp;
+	long	n2;
 
 	result = 0;
 	n2 = (long)n;
@@ -81,9 +81,9 @@ char *ft_itoa(int n)
 	return (result);
 }
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t length;
+	size_t	length;
 
 	length = 0;
 	while (s[length])
@@ -91,12 +91,12 @@ size_t ft_strlen(const char *s)
 	return (length);
 }
 
-char *ft_itoa_long(unsigned int n)
+char	*ft_itoa_long(unsigned int n)
 {
-	char *result;
-	int index;
-	int temp;
-	unsigned int n2;
+	char			*result;
+	int				index;
+	int				temp;
+	unsigned int	n2;
 
 	result = 0;
 	n2 = n;

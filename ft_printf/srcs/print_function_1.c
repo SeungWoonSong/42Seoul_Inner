@@ -6,15 +6,15 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:49:34 by susong            #+#    #+#             */
-/*   Updated: 2022/08/18 17:02:03 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/19 15:19:25 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int ft_write_arg(const char *s, va_list *ap)
+int	ft_write_arg(const char *s, va_list *ap)
 {
-	int length;
+	int	length;
 
 	length = 0;
 	if (s[1] == '%')
@@ -34,14 +34,14 @@ int ft_write_arg(const char *s, va_list *ap)
 	else if (s[1] == 'x')
 		length += ft_print_x(&ap);
 	else if (s[1] == 'X')
-		length += ft_print_X(&ap);
+		length += ft_print_xx(&ap);
 	return (length);
 }
 
-int ft_print_c(va_list **ap)
+int	ft_print_c(va_list **ap)
 {
-	unsigned char temp;
-	int print_size;
+	unsigned char	temp;
+	int				print_size;
 
 	print_size = 0;
 	temp = (unsigned char)va_arg(**ap, int);
@@ -49,10 +49,10 @@ int ft_print_c(va_list **ap)
 	return (print_size);
 }
 
-int ft_print_s(va_list **ap)
+int	ft_print_s(va_list **ap)
 {
-	char *temp;
-	int print_size;
+	char	*temp;
+	int		print_size;
 
 	print_size = 0;
 	temp = (char *)va_arg(**ap, char *);
@@ -63,12 +63,13 @@ int ft_print_s(va_list **ap)
 	return (print_size);
 }
 
-int ft_print_p(va_list **ap)
+int	ft_print_p(va_list **ap)
 {
-	int length;
-	unsigned int temp;
+	int				length;
+	unsigned long	temp;
 
-	temp = (unsigned int)va_arg(**ap, unsigned int);
+	length = 0;
+	temp = (unsigned long long)va_arg(**ap, void *);
 	length = write(1, "0x", 2);
 	if (length == -1)
 		return (0);
@@ -77,15 +78,16 @@ int ft_print_p(va_list **ap)
 		length += write(1, "0", 1);
 		return (length);
 	}
-	length += make_hex(temp, length);
-	return (length - 1);
+	ft_putptr(temp, "0123456789abcdef");
+	length += ft_ptrlen(temp);
+	return (length);
 }
 
-int ft_print_d(va_list **ap)
+int	ft_print_d(va_list **ap)
 {
-	int length;
-	char *temp;
-	int numtemp;
+	int		length;
+	char	*temp;
+	int		numtemp;
 
 	length = 0;
 	numtemp = (int)va_arg(**ap, int);

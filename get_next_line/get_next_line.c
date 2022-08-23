@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:46:59 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/23 15:03:47 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:28:44 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *absolute_enter(int fd, char *BUFFER, char *backup)
+char	*absolute_enter(int fd, char *BUFFER, char *backup)
 {
-	int line_numb;
-	char *temp;
+	int		line_numb;
+	char	*temp;
 
 	line_numb = 1;
 	while (line_numb != '\0')
@@ -24,7 +24,7 @@ char *absolute_enter(int fd, char *BUFFER, char *backup)
 		if (line_numb < 0)
 			return (0);
 		else if (line_numb == 0)
-			break;
+			break ;
 		BUFFER[line_numb] = '\0';
 		if (!backup)
 			backup = ft_strdup("");
@@ -32,14 +32,14 @@ char *absolute_enter(int fd, char *BUFFER, char *backup)
 		backup = ft_strjoin(temp, BUFFER);
 		free(temp);
 		if (ft_strchr(backup, '\n'))
-			break;
+			break ;
 	}
 	return (backup);
 }
 
-char *extract_result(char *result, char *backup)
+char	*extract_result(char *result, char *backup)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (result[count] != '\n' && result[count] != '\0')
@@ -56,15 +56,15 @@ char *extract_result(char *result, char *backup)
 	return (backup);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *backup;
-	char Buffer_now[BUFFER_SIZE + 1];
-	char *result;
+	static char	*backup;
+	char		buffernow[BUFFER_SIZE + 1];
+	char		*result;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	result = absolute_enter(fd, Buffer_now, backup);
+	result = absolute_enter(fd, buffernow, backup);
 	if (!result)
 		return (NULL);
 	backup = extract_result(result, backup);

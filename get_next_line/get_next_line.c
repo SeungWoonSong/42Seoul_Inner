@@ -6,7 +6,7 @@
 /*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:46:59 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/23 14:45:26 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:03:47 by nouswong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,31 +69,4 @@ char *get_next_line(int fd)
 		return (NULL);
 	backup = extract_result(result, backup);
 	return (result);
-	// 만약 backup에 개행이 있다면? -> 그전까지 리턴, 없으면 read 실시
-	// if (ft_strchr(backup, '\n'))
-	// 	result = ft_strdup(backup [0:'\n'있는 곳])
-	// 	while (!(ft_strchr(result, '\n')))
-	//  	result = readjoin(fd,backup );
-	//  backup = result 개행 후
-	//	return(개행 전까지!)
-	// //
 }
-
-// int main()
-// {
-
-// 	int fd = open("test.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	while (1)
-// 	{
-// 	}
-// }

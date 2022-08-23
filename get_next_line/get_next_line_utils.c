@@ -6,7 +6,7 @@
 /*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:46:54 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/23 14:20:03 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:13:36 by nouswong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,6 @@ char *ft_strdup(const char *s1)
 	}
 	result[length] = '\0';
 	return (result);
-}
-
-size_t ft_strlcpy(char *dest, const char *source, size_t size)
-{
-	int i;
-
-	if (!(dest || source))
-		return (0);
-	i = 0;
-	if (size != 0)
-	{
-		while (source[i] && --size)
-		{
-			dest[i] = source[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (ft_strlen(source));
 }
 
 char *ft_strchr(const char *s, int c)

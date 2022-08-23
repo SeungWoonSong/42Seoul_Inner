@@ -6,7 +6,7 @@
 /*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:47:01 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/22 16:30:34 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:22:03 by nouswong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 // util
 // 스트링 복사에서 붙여넣기!
@@ -30,6 +32,7 @@ char *ft_strchr(const char *s, int c);
 // 하나 가지고 왼쪽에 옮기기
 size_t ft_strlcpy(char *dest, const char *source, size_t size);
 size_t ft_strlen(const char *s);
+char *ft_substr(char const *s, unsigned int start, size_t len);
 
 // main
 char *get_next_line(int fd);

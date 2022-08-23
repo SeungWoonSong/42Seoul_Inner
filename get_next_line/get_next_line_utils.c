@@ -6,7 +6,7 @@
 /*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:46:54 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/22 16:48:23 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:20:03 by nouswong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,28 @@ size_t ft_strlen(const char *s)
 	while (s[length])
 		length++;
 	return (length);
+}
+
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char *result;
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(result))
+		return (0);
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			result[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	result[j] = '\0';
+	return (result);
 }

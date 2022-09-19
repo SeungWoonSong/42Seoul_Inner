@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 13:59:25 by susong            #+#    #+#             */
-/*   Updated: 2022/08/05 14:13:38 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/12 17:01:08 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_bzero(void *s, size_t n)
 {
+	if (!s)
+		return ;
 	ft_memset(s, 0, n);
 }

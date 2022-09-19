@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:49:52 by susong            #+#    #+#             */
-/*   Updated: 2022/08/11 11:56:11 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/12 17:08:36 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 	t_list	*temp;
 
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
 	new = NULL;
 	while (lst != NULL)

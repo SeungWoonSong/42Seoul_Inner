@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:25:15 by susong            #+#    #+#             */
-/*   Updated: 2022/08/11 11:27:59 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/12 17:07:44 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst == NULL)
+	if (!lst)
 		return ;
 	while (lst != NULL)
 	{

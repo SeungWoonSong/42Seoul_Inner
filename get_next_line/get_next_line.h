@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:47:01 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/23 15:27:40 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/23 16:29:38 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);

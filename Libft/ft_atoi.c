@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:52:50 by susong            #+#    #+#             */
-/*   Updated: 2022/08/08 16:26:56 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/12 17:00:41 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_atoi(const char *str)
 	int	result;
 	int	sign;
 
+	if (!str)
+		return (0);
 	result = 0;
 	sign = 1;
 	while ((*str >= 9 && *str <= 13) || *str == 32)

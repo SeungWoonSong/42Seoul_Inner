@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 14:46:59 by nouswong          #+#    #+#             */
-/*   Updated: 2022/08/23 15:28:44 by susong           ###   ########.fr       */
+/*   Updated: 2022/08/23 17:27:56 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,15 @@ char	*get_next_line(int fd)
 		return (NULL);
 	backup = extract_result(result, backup);
 	return (result);
+}
+
+int main()
+{
+	int fd = open("test.txt", O_RDONLY);
+	char* tmp = NULL;
+	while (tmp = get_next_line(fd)) {
+		printf("%s", tmp);
+		free(tmp);
+	}
+	while (1);
 }

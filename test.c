@@ -1,15 +1,35 @@
 #include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
+
+
+void ft_printf(char *s, ...)
+{
+	va_list ap;
+	int i = 0;
+
+	va_start(ap, s);
+	while(s[i])
+	{
+		if(s[i] != '%')
+			write(1, &s[i], 1);
+		else
+		{
+			write(1, va_arg(ap, char), 1);
+			i++;
+		}
+		i++;
+
+	}
+
+}
+
+
+
+
 
 int main()
 {
-	int a[10] = {1,2,3,4,5,6,7,8,9,10};
-	int *p = a;
-
-	while(p - a <=9)
-	{
-		printf("now p - a is %d \n",p-a);
-		p++;
-	}
-	return (0);
+	ft_printf("hello %c",'z');
 }
 

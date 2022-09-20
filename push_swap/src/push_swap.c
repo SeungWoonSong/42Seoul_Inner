@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:16:33 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 12:09:47 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/20 14:03:33 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,19 @@ int	main(int argc, char **argv)
 		print_error(indexed_arr);
 	if (!make_indexed_arr(&arr, argc, argv, 0))
 		print_error(indexed_arr);
-
 	stack_a = make_stack_a(argc, indexed_arr, arr);
 	stack_b = init_node();
-
+	exec_Algorithm(stack_a, stack_b, argc - 1);
 	// sa(stack_a);
-	pb(stack_a,stack_b);
-	pb(stack_a,stack_b);
-	pb(stack_a,stack_b);
-	pa(stack_a,stack_b);
-	pa(stack_a,stack_b);
-	pa(stack_a,stack_b);
+	// pb(stack_a,stack_b);
+	// pb(stack_a,stack_b);
+	// pb(stack_a,stack_b);
+	// pa(stack_a,stack_b);
+	// pa(stack_a,stack_b);
+	// pa(stack_a,stack_b);
 
-	ra(stack_a);
-	ra(stack_a);
+	// ra(stack_a);
+	// ra(stack_a);
 
 	printf("\n------stack_a size : %d-----\n",stack_a->currentElementCount);
 	print_stack(stack_a);
@@ -69,6 +68,6 @@ void print_stack(DoubleList *stack)
 		temp_node = temp_node->right;
 		temp++;
 	}
-	printf("head node %d %d",temp_node->index, temp_node->data);
+	printf("head node %d %d\n\n",temp_node->index, temp_node->data);
 	return ;
 }

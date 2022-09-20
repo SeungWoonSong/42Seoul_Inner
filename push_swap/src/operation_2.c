@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:06:15 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 12:09:47 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/20 13:16:59 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	pa(DoubleList *stack_b, DoubleList *stack_a)
 	}
 	stack_b->currentElementCount += 1;
 	stack_a->currentElementCount -= 1;
+	printf("pa\n");
 }
 
 // pb (push b): Take the first element at the top of a and put it at the top of b.
@@ -108,10 +109,10 @@ void	pb(DoubleList *stack_a, DoubleList *stack_b)
 		stack_b->headerNode.left = temp;
 		temp->left = &stack_b->headerNode;
 		temp->right = &stack_b->headerNode;
-
 	}
 	stack_b->currentElementCount += 1;
 	stack_a->currentElementCount -= 1;
+	printf("pb\n");
 }
 
 
@@ -125,7 +126,6 @@ void	ra(DoubleList *stack)
 	if (stack->currentElementCount <= 1)
 		return ;
 	temp = stack->headerNode.right;
-	printf("temp data %d %d\n", temp->data, temp->index);
 	stack->headerNode.right = temp->right;
 	temp->right->left = &stack->headerNode;
 	stack->headerNode.left->right = temp;
@@ -152,8 +152,49 @@ void	rb(DoubleList *stack)
 	printf("rb\n");
 }
 // rr : ra and rb at the same time.
+
+void	rr(DoubleList *stack_a, DoubleList *stack_b)
+{
+	ra(stack_a);
+	rb(stack_b);
+	printf("rr\n");
+}
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
 // The last element becomes the first one.
+
+void rra(DoubleList *stack)
+{
+	t_node *temp;
+
+	temp = stack->headerNode.left;
+	stack->headerNode.left = temp->left;
+	stack->headerNode.left->right = &stack->headerNode;
+	temp->right = stack->headerNode.right;
+	temp->right->left = temp;
+	temp->left = &stack->headerNode;
+	stack->headerNode.right = temp;
+	printf("rra\n");
+}
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
 // The last element becomes the first one.
+void rrb(DoubleList *stack)
+{
+	t_node *temp;
+
+	temp = stack->headerNode.left;
+	stack->headerNode.left = temp->left;
+	stack->headerNode.left->right = &stack->headerNode;
+	temp->right = stack->headerNode.right;
+	temp->right->left = temp;
+	temp->left = &stack->headerNode;
+	stack->headerNode.right = temp;
+	printf("rrb\n");
+}
 // rrr : rra and rrb at the same time.
+
+void rrr(DoubleList *stack_a, DoubleList * stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
+	printf("rrr");
+}

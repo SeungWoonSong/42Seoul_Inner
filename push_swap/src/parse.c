@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:17:39 by susong            #+#    #+#             */
-/*   Updated: 2022/09/19 17:28:43 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/20 11:26:11 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (*str++ - 48);
 	return (result * sign);
 }
-
 
 int	check_over_int(char *check)
 {
@@ -79,20 +78,23 @@ int	check_digit(char *check)
 	return (1);
 }
 
-void	sort_bubble(int **indexed_arr)
+int	sort_bubble(int **indexed_arr, int index)
 {
 	int	i;
 	int	j;
 	int	temp;
 
 	i = 0;
-	while ((*indexed_arr)[i])
+	temp = 0;
+	while ((*indexed_arr)[i] || i < (index - 2))
 	{
 		j = i + 1;
-		while ((*indexed_arr)[j])
+		while ((*indexed_arr)[j] || j < (index - 1))
 		{
-			if ((*indexed_arr)[j] < (*indexed_arr)[i])
+			if ((*indexed_arr)[j] <= (*indexed_arr)[i])
 			{
+				if ((*indexed_arr)[i] == (*indexed_arr)[j])
+					return (1);
 				temp = (*indexed_arr)[j];
 				(*indexed_arr)[j] = (*indexed_arr)[i];
 				(*indexed_arr)[i] = temp;
@@ -101,10 +103,11 @@ void	sort_bubble(int **indexed_arr)
 		}
 	i++;
 	}
+	return (0);
 }
 // something went go wrong return 0, else 1
 
-int	make_indexed_arr(int **indexed_arr, int argc, char **resource)
+int	make_indexed_arr(int **indexed_arr, int argc, char **resource, int flag)
 {
 	int	i;
 
@@ -120,6 +123,7 @@ int	make_indexed_arr(int **indexed_arr, int argc, char **resource)
 		(*indexed_arr)[i - 1] = ft_atoi(resource[i]);
 		i++;
 	}
-	sort_bubble(indexed_arr);
+	if (flag == 1 && sort_bubble(indexed_arr, i))
+		return (0);
 	return (1);
 }

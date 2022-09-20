@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:19:58 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 11:43:15 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/20 11:56:37 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ DoubleList	*init_node(void);
 void	sa(DoubleList *stack_a);
 void	sb(DoubleList *stack_a);
 void	ss(DoubleList *stack_a, DoubleList *stack_b);
+void	pa(DoubleList *stack_b, DoubleList *stack_a);
 void	pb(DoubleList *stack_a, DoubleList *stack_b);
+void	ra(DoubleList *stack);
+void	rb(DoubleList *stack);
 #	endif

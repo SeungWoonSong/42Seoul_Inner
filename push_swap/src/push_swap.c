@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:16:33 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 14:03:33 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/21 10:22:18 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,11 @@ int	main(int argc, char **argv)
 	stack_a = make_stack_a(argc, indexed_arr, arr);
 	stack_b = init_node();
 	exec_Algorithm(stack_a, stack_b, argc - 1);
-	// sa(stack_a);
-	// pb(stack_a,stack_b);
-	// pb(stack_a,stack_b);
-	// pb(stack_a,stack_b);
-	// pa(stack_a,stack_b);
-	// pa(stack_a,stack_b);
-	// pa(stack_a,stack_b);
-
-	// ra(stack_a);
-	// ra(stack_a);
-
-	printf("\n------stack_a size : %d-----\n",stack_a->currentElementCount);
-	print_stack(stack_a);
-	printf("\n------stack_b size : %d-----\n",stack_b->currentElementCount);
-	print_stack(stack_b);
-	printf("\n---end---\n");
-
-	// printf("sizeof %d", i);
-
+	// printf("\n------stack_a size : %d-----\n",stack_a->currentElementCount);
+	// print_stack(stack_a);
+	// printf("\n------stack_b size : %d-----\n",stack_b->currentElementCount);
+	// print_stack(stack_b);
+	// printf("\n---end---\n");
 }
 
 void print_error(int *for_free)

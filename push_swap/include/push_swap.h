@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:19:58 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 13:51:43 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/21 10:13:30 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void hourglass(DoubleList *stack_a,DoubleList * stack_b, int chunk);
 void phase1(DoubleList *stack_a, DoubleList *stack_b, int chunk);
 void phase2(DoubleList *stack_a, DoubleList *stack_b);
 
+int	find_depth_top(DoubleList *stack_b, t_node *present);
+int	find_depth_bottom(DoubleList *stack_b, t_node *present);
+void	push_from_top(DoubleList *stack_a, DoubleList *stack_b, int depth);
+void	push_from_bottom(DoubleList *stack_a, DoubleList *stack_b, int depth);
 // main
 void print_error(int *for_free);
 void print_stack(DoubleList *stack);

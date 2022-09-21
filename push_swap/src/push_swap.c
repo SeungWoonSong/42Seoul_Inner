@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:16:33 by susong            #+#    #+#             */
-/*   Updated: 2022/09/21 10:22:18 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/21 14:09:35 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	DoubleList	*stack_a;
-	DoubleList	*stack_b;
-	int			*indexed_arr; // 소팅 된 녀석
-	int			*arr; // 입력 그대로의 녀석
+	t_doublelist	*stack_a;
+	t_doublelist	*stack_b;
+	int				*indexed_arr;
+	int				*arr;
 
 	indexed_arr = 0;
 	if (!make_indexed_arr(&indexed_arr, argc, argv, 1))
@@ -26,34 +26,26 @@ int	main(int argc, char **argv)
 		print_error(indexed_arr);
 	stack_a = make_stack_a(argc, indexed_arr, arr);
 	stack_b = init_node();
-	exec_Algorithm(stack_a, stack_b, argc - 1);
-	// printf("\n------stack_a size : %d-----\n",stack_a->currentElementCount);
-	// print_stack(stack_a);
-	// printf("\n------stack_b size : %d-----\n",stack_b->currentElementCount);
-	// print_stack(stack_b);
-	// printf("\n---end---\n");
+	exec_algorithm(stack_a, stack_b, argc - 1);
+	return (0);
 }
 
-void print_error(int *for_free)
+void	print_error(int *for_free)
 {
-	printf("Error\n");
+	write(2, "Error\n", 6);
 	if (for_free != NULL)
 		free(for_free);
-	exit(1);
+	exit(0);
 }
 
-void print_stack(DoubleList *stack)
+void	print_string(char *string)
 {
-	int temp = 0;
-	t_node *temp_node;
+	int	size;
 
-	temp_node = stack->headerNode.right;
-	while(temp < stack->currentElementCount)
-	{
-		printf("index : %d, data : %d\n", temp_node->index, temp_node->data);
-		temp_node = temp_node->right;
-		temp++;
-	}
-	printf("head node %d %d\n\n",temp_node->index, temp_node->data);
-	return ;
+	size = 0;
+	if (!string)
+		return ;
+	while (string[size])
+		size++;
+	write(1, string, size);
 }

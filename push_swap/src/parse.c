@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:17:39 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 11:26:11 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/21 14:20:15 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ int	sort_bubble(int **indexed_arr, int index)
 {
 	int	i;
 	int	j;
-	int	temp;
+	int	sort_time;
 
 	i = 0;
-	temp = 0;
+	sort_time = 0;
 	while ((*indexed_arr)[i] || i < (index - 2))
 	{
 		j = i + 1;
@@ -94,22 +94,22 @@ int	sort_bubble(int **indexed_arr, int index)
 			if ((*indexed_arr)[j] <= (*indexed_arr)[i])
 			{
 				if ((*indexed_arr)[i] == (*indexed_arr)[j])
-					return (1);
-				temp = (*indexed_arr)[j];
-				(*indexed_arr)[j] = (*indexed_arr)[i];
-				(*indexed_arr)[i] = temp;
+					return (-1);
+				bubble_util(&(*indexed_arr)[i], &(*indexed_arr)[j]);
+				sort_time++;
 			}
 		j++;
 		}
 	i++;
 	}
-	return (0);
+	return (sort_time);
 }
 // something went go wrong return 0, else 1
 
 int	make_indexed_arr(int **indexed_arr, int argc, char **resource, int flag)
 {
 	int	i;
+	int	indexed_check;
 
 	i = 1;
 	*indexed_arr = (int *)malloc(sizeof(int) * argc);
@@ -123,7 +123,13 @@ int	make_indexed_arr(int **indexed_arr, int argc, char **resource, int flag)
 		(*indexed_arr)[i - 1] = ft_atoi(resource[i]);
 		i++;
 	}
-	if (flag == 1 && sort_bubble(indexed_arr, i))
-		return (0);
+	if (flag == 1)
+	{
+		indexed_check = sort_bubble(indexed_arr, i);
+		if (indexed_check == 0)
+			exit(1);
+		else if (indexed_check == -1)
+			return (0);
+	}
 	return (1);
 }

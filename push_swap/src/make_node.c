@@ -6,28 +6,28 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 08:57:58 by susong            #+#    #+#             */
-/*   Updated: 2022/09/20 10:44:56 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/21 14:09:45 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-DoubleList	*init_node(void)
+t_doublelist	*init_node(void)
 {
-	DoubleList	*list;
+	t_doublelist	*list;
 
-	list = (DoubleList *)malloc(sizeof(DoubleList));
+	list = (t_doublelist *)malloc(sizeof(t_doublelist));
 	if (!list)
 		return (0);
-	list->currentElementCount = 0;
-	list->headerNode.left = &list->headerNode;
-	list->headerNode.right = &list->headerNode;
-	list->headerNode.data = -1;
-	list->headerNode.index = -1;
+	list->currentelementcount = 0;
+	list->headernode.left = &list->headernode;
+	list->headernode.right = &list->headernode;
+	list->headernode.data = -1;
+	list->headernode.index = -1;
 	return (list);
 }
 
-int	add_node_back(DoubleList *head, int *index_arr, int data)
+int	add_node_back(t_doublelist *head, int *index_arr, int data)
 {
 	int		index_num;
 	int		temp;
@@ -39,25 +39,25 @@ int	add_node_back(DoubleList *head, int *index_arr, int data)
 		return (0);
 	temp = 1;
 	index_num = 0;
-	prev = head->headerNode.right;
+	prev = head->headernode.right;
 	while (index_arr[index_num] != data)
 		index_num++;
-	while (temp++ < head->currentElementCount)
+	while (temp++ < head->currentelementcount)
 		prev = prev->right;
-	head->currentElementCount += 1;
+	head->currentelementcount += 1;
 	new->index = index_num;
 	new->data = data;
 	new->left = prev;
 	prev->right = new;
-	new->right = &head->headerNode;
-	head->headerNode.left = new;
+	new->right = &head->headernode;
+	head->headernode.left = new;
 	return (1);
 }
 
-DoubleList	*make_stack_a(int index, int *indexed_arr, int *arr)
+t_doublelist	*make_stack_a(int index, int *indexed_arr, int *arr)
 {
-	DoubleList	*head;
-	int			i;
+	t_doublelist	*head;
+	int				i;
 
 	i = 0;
 	head = init_node();

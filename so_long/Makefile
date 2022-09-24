@@ -6,13 +6,14 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:07:36 by susong            #+#    #+#              #
-#    Updated: 2022/09/24 17:27:32 by susong           ###   ########.fr        #
+#    Updated: 2022/09/24 19:40:56 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 SRCS	= src/so_long.c \
 			src/check_map.c \
+			src/check_map_util.c \
 			src/gnl.c \
 			src/gnl2.c
 OBJS	= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:09:06 by susong            #+#    #+#             */
-/*   Updated: 2022/09/24 18:29:53 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/24 20:16:40 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 
 typedef struct t_map{
 	int		line;
+	int		player;
+	int		exit;
+	int		collect;
 	int		size;
 	int		length;
 	char	*map_data;
@@ -37,9 +40,16 @@ void print_error(int flag);
 
 //check_map
 t_map *check_map(char *map_filename);
-t_map	*init_map();
 void make_map_big(t_map *map);
 int append_result(t_map *a, char *b);
+
+//check_map_util
+int check_data(t_map *map, char *line);
+int is_wall(int count, char *line);
+int is_valid(char *line, t_map *map);
+int collect_data_map(t_map *map, char *line);
+t_map	*init_map();
+int check_last_wall(t_map *map);
 
 // GNL
 char	*ft_strdup(const char *s1);

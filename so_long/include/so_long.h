@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:09:06 by susong            #+#    #+#             */
-/*   Updated: 2022/09/25 16:58:05 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/25 20:31:33 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,13 @@ typedef	struct t_param // 키 값을 입력 받고 정해진 동작을 수행했
 //so_long
 void print_error(int flag);
 void start_game(t_game_data *map);
+t_game_data *end_red(t_game_data *data);
 
+
+//util_itoa
+int	ft_count(long n);
+char	*plusorminus(char *result, long n);
+char	*ft_itoa(int n);
 //check_map
 int check_map(t_game_data *game_data, char *map_filename);
 void make_map_big(t_game_data *map);
@@ -85,13 +91,22 @@ int check_last_wall(t_game_data *map);
 
 //draw_map
 void	make_window(t_game_data *game_data);
-void	draw_map(t_game_data *data);
+void	draw_map(t_game_data *data, int index, int wid, int hei);
+void print_count(int count);
+void	draw_map_util(int *hei, int *wid);
 
 //control
 
-int key_press(int keycode, t_param *param);
+int key_press(int keycode, t_game_data *data);
 void set_game_data(t_game_data *param);
 t_game_data	*init_data();
+void	set_player(t_game_data *data);
+
+//control2
+void move_left(t_game_data *data);
+void move_right(t_game_data *data);
+void move_up(t_game_data *data);
+void move_down(t_game_data *data);
 
 // GNL
 char	*ft_strdup(const char *s1);

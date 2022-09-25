@@ -6,34 +6,35 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 13:36:20 by susong            #+#    #+#             */
-/*   Updated: 2022/09/25 16:44:14 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/25 20:30:06 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int key_press(int keycode, t_param *param) // 어떤 키가 눌렸는지 판단하고,
-{                                                // 정의된 행동을 수행하는 함수
-	if (keycode == KEY_W || keycode == KEY_UP)        // W 키를 누르면 param.x값이 1 증가한다.
-		param->x++;
-	else if (keycode == KEY_S || keycode == KEY_DOWN)   // S 키를 누르면 param.x값이 1 감소한다.
-		param->x--;
-	else if (keycode == KEY_A || keycode == KEY_LEFT)   // A 키를 누르면 param.y값이 1 증가한다.
-		param->y++;
-	else if (keycode == KEY_D || keycode == KEY_RIGHT)   // D 키를 누르면 param.y값이 1 감소한다.
-		param->y--;
-	else if (keycode == KEY_ESC) // ESC 키를 누르면 프로그램 종료
+int	key_press(int keycode, t_game_data *data)
+{
+	if (keycode == KEY_W || keycode == KEY_UP)
+		move_up(data);
+	else if (keycode == KEY_S || keycode == KEY_DOWN)
+		move_down(data);
+	else if (keycode == KEY_A || keycode == KEY_LEFT)
+		move_left(data);
+	else if (keycode == KEY_D || keycode == KEY_RIGHT)
+		move_right(data);
+	else if (keycode == KEY_ESC)
 		exit(0);
-	printf("(x, y): (%d, %d)\n", param->x, param->y); // param의 값 확인
+	draw_map(data, 0, 0, 0);
+	print_count(data->move);
 	return (0);
 }
 
-t_game_data	*init_data()
+t_game_data	*init_data(void)
 {
 	t_game_data	*map;
 
 	map = (t_game_data *)malloc(sizeof(t_game_data));
-	if(!map)
+	if (!map)
 		print_error(2);
 	map->line = 0;
 	map->size = 100;
@@ -43,16 +44,33 @@ t_game_data	*init_data()
 	map->player = 0;
 	map->exit = 0;
 	map->collect = 0;
-	map->cur_x = 0;
-	map->cur_y = 0;
 	map->mlx = mlx_init();
-	map->win = 0;
-	map->move = 0;
-	// map->p_collect = mlx_xpm_file_to_image(map->mlx, "./img/Collect.xpm", &map->width, &map->height);
-	// map->p_exit = mlx_xpm_file_to_image(map->mlx, "./img/Exit.xpm", &map->width, &map->height);
-	// map->p_player = mlx_xpm_file_to_image(map->mlx, "./img/Player.xpm", &map->width, &map->height);
-	map->p_wall = mlx_xpm_file_to_image(map->mlx, "./img/Wall.xpm", &map->width, &map->height);
-	map->p_base = mlx_xpm_file_to_image(map->mlx, "./img/Base.xpm", &map->width, &map->height);
+	map->p_collect = mlx_xpm_file_to_image(map->mlx, "./img/Collect.xpm",
+			&map->width, &map->height);
+	map->p_exit = mlx_xpm_file_to_image(map->mlx, "./img/Exit.xpm",
+			&map->width, &map->height);
+	map->p_player = mlx_xpm_file_to_image(map->mlx, "./img/Player.xpm",
+			&map->width, &map->height);
+	map->p_wall = mlx_xpm_file_to_image(map->mlx, "./img/Wall.xpm",
+			&map->width, &map->height);
+	map->p_base = mlx_xpm_file_to_image(map->mlx, "./img/Base.xpm",
+			&map->width, &map->height);
+	return (map);
+}
 
-	return(map);
+void	set_player(t_game_data *data)
+{
+	int	index;
+
+	index = 0;
+	data->cur_x = 0;
+	data->cur_y = 0;
+	while (index < data->length)
+	{
+		if (data->map_data[index] == 'P')
+			break ;
+		index++;
+	}
+	data->cur_x = index % (data->length / data->line);
+	data->cur_y = index / (data->length / data->line);
 }

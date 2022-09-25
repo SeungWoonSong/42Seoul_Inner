@@ -6,13 +6,13 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:38:26 by susong            #+#    #+#             */
-/*   Updated: 2022/09/24 20:17:42 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/25 16:43:58 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int check_data(t_map *map, char *line)
+int check_data(t_game_data *map, char *line)
 {
 	int count;
 
@@ -50,7 +50,7 @@ int is_wall(int count, char *line)
 	return (1);
 }
 
-int is_valid(char *line, t_map *map)
+int is_valid(char *line, t_game_data *map)
 {
 	int index;
 	int	size;
@@ -73,7 +73,7 @@ int is_valid(char *line, t_map *map)
 	return(1);
 }
 
-int collect_data_map(t_map *map, char *line)
+int collect_data_map(t_game_data *map, char *line)
 {
 	int index;
 
@@ -91,25 +91,9 @@ int collect_data_map(t_map *map, char *line)
 	return (1);
 }
 
-t_map	*init_map()
-{
-	t_map	*map;
 
-	map = (t_map *)malloc(sizeof(t_map));
-	if(!map)
-		print_error(2);
-	map->line = 0;
-	map->size = 100;
-	map->length = 0;
-	map->map_data = (char *)malloc(sizeof(char) * 100);
-	map->map_data[99] = 0;
-	map->player = 0;
-	map->exit = 0;
-	map->collect = 0;
-	return(map);
-}
 
-int check_last_wall(t_map *map)
+int check_last_wall(t_game_data *map)
 {
 	int size;
 	int index;

@@ -6,16 +6,18 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:07:36 by susong            #+#    #+#              #
-#    Updated: 2022/09/24 20:54:38 by susong           ###   ########.fr        #
+#    Updated: 2022/09/25 16:58:47 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 SRCS	= 	src/so_long.c \
-			# src/check_map.c \
-			# src/check_map_util.c \
-			# src/gnl.c \
-			# src/gnl_2.c
+			src/check_map.c \
+			src/check_map_util.c \
+			src/gnl.c \
+			src/gnl_2.c \
+			src/control_1.c \
+			src/draw_map.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 CC		= gcc

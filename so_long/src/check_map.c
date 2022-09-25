@@ -6,23 +6,21 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:57:58 by susong            #+#    #+#             */
-/*   Updated: 2022/09/24 20:10:42 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/25 16:38:42 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-t_map *check_map(char *map_filename)
+int check_map(t_game_data *game_data, char *map_filename)
 {
 	char *line;
 	char *result;
 	int fd;
 	int index;
-	t_map *map_file;
 
 	index = 1;
 	result = 0;
-	map_file = init_map();
 	fd = open(map_filename, O_RDONLY);
 	while(index)
 	{
@@ -30,20 +28,20 @@ t_map *check_map(char *map_filename)
 		if(!line)
 			index = 0;
 		else
-			if(!(append_result(map_file, line)))
+			if(!(append_result(game_data, line)))
 				print_error(2);
 		free(line);
 	}
-	check_last_wall(map_file);
-	if(!(map_file->exit >= 1 && map_file->collect >= 1 && \
-		map_file->player == 1))
+	check_last_wall(game_data);
+	if(!(game_data->exit >= 1 && game_data->collect >= 1 && \
+		game_data->player == 1))
 		return (0);
 	close(fd);
-	return(map_file);
+	return (1);
 }
 
 
-void make_map_big(t_map *map)
+void make_map_big(t_game_data *map)
 {
 	char *temp;
 	int index;
@@ -61,7 +59,7 @@ void make_map_big(t_map *map)
 	map->size *= 2;
 }
 
-int append_result(t_map *a, char *b)
+int append_result(t_game_data *a, char *b)
 {
 	int index;
 

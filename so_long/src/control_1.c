@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 13:36:20 by susong            #+#    #+#             */
-/*   Updated: 2022/09/25 20:30:06 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/26 09:11:28 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	key_press(int keycode, t_game_data *data)
 		exit(0);
 	draw_map(data, 0, 0, 0);
 	print_count(data->move);
+	if (data->exit_flag == 2)
+		data->exit_flag = 1;
 	return (0);
 }
 

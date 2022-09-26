@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 15:10:11 by susong            #+#    #+#             */
-/*   Updated: 2022/09/25 20:32:37 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/26 09:26:29 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	make_window(t_game_data *data)
 {
-	data->width = (data->length / data->line) * 64;
+	data->width = ((data->length / data->line) - 1) * 64;
 	data->height = data->line * 64;
 	data->win = mlx_new_window(data->mlx, data->width, data->height, "SO_LONG");
 	return ;
@@ -27,7 +27,7 @@ void	draw_map(t_game_data *data, int index, int wid, int hei)
 		if (data->map_data[index] == '1')
 			mlx_put_image_to_window(data->mlx, data->win, data->p_wall,
 				wid * 64, hei * 64);
-		else if (data->map_data[index] != '1')
+		else if (data->map_data[index] != '1' && data->map_data[index] != '\n')
 			mlx_put_image_to_window(data->mlx, data->win, data->p_base,
 				wid * 64, hei * 64);
 		if (data->map_data[index] == 'P')
@@ -53,7 +53,7 @@ void	print_count(int count)
 
 	temp = ft_itoa(count);
 	write(1, "Current Count is ", 18);
-	write(1, ft_itoa(count), ft_count(count));
+	write(1, temp, ft_count(count));
 	write(1, "\n", 1);
 	free(temp);
 }

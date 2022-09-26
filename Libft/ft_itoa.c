@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:49:03 by susong            #+#    #+#             */
-/*   Updated: 2022/08/10 20:34:40 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/25 20:00:25 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*plusorminus(char *result, long n)
 		return (result);
 	}
 	if (!result)
-		return (NULL);
+		return (0);
 	if (n < 0)
 	{
 		result[0] = '-';
@@ -63,7 +63,7 @@ char	*ft_itoa(int n)
 	n2 = (long)n;
 	result = plusorminus(result, n2);
 	if (!result)
-		return (NULL);
+		return (0);
 	if (n2 == 0)
 		return (result);
 	if (n2 < 0)

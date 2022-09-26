@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../push_swap"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"unistd.h": "c",
+			"mlx.h": "c"
+		}
+	}
+}

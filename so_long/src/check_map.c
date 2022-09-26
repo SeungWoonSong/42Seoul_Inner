@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 16:57:58 by susong            #+#    #+#             */
-/*   Updated: 2022/09/25 20:18:17 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/26 09:20:08 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	make_map_big(t_game_data *map)
 
 int	append_result(t_game_data *a, char *b)
 {
-	int	index;
+	unsigned int	index;
 
 	index = 0;
 	if (!(check_data(a, b)))
 		return (0);
-	if ((a->size) - (a->length) - 1 < ft_strlen(b))
+	if ((a->size) - (a->length) - 1 < (int)ft_strlen(b))
 		make_map_big(a);
 	while (index < ft_strlen(b))
 	{

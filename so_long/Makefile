@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:07:36 by susong            #+#    #+#              #
-#    Updated: 2022/09/25 20:04:37 by susong           ###   ########.fr        #
+#    Updated: 2022/09/26 09:17:26 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 CC		= gcc
 HEADER  = 	include/so_long.h
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER} -I mlx

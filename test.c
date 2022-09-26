@@ -2,34 +2,32 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-
-void ft_printf(char *s, ...)
+void increas(int k)
 {
-	va_list ap;
-	int i = 0;
+	static int	apple;
 
-	va_start(ap, s);
-	while(s[i])
+	apple++;
+	printf("apple is %d\n",apple);
+
+}
+
+void drcreas(int k)
+{
+	static int apple;
+	apple++;
+
+	printf("banana is %d", apple);
+}
+
+int	main()
+{
+	static int j;
+
+	do
 	{
-		if(s[i] != '%')
-			write(1, &s[i], 1);
-		else
-		{
-			write(1, va_arg(ap, char), 1);
-			i++;
-		}
-		i++;
-
-	}
+		increas(j);
+		drcreas(j);
+		j++;
+	} while (j < 10);
 
 }
-
-
-
-
-
-int main()
-{
-	ft_printf("hello %c",'z');
-}
-

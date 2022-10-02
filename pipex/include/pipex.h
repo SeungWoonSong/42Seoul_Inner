@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:17:02 by susong            #+#    #+#             */
-/*   Updated: 2022/10/02 16:20:20 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/02 16:48:09 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct t_pipe_data
 {
 	int		num_command;
+	int		total;
 	char	**operand;
 	char	**option;
 	int		fd[2][2];
@@ -46,7 +47,8 @@ char **make_option(t_pipe_data *data, char ***argv);
 
 //execute_process
 void make_child(t_pipe_data *data, char **envp);
-
+void execute_process(t_pipe_data *data, char **envp);
+void change_pipe(t_pipe_data *data);
 
 
 //util_1

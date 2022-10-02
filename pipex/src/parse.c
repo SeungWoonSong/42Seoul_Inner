@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:59:33 by susong            #+#    #+#             */
-/*   Updated: 2022/10/02 16:23:13 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/02 16:31:57 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_pipe_data *init_data(int argc, char **argv, char **envp)
 	data = (t_pipe_data *)malloc(sizeof(t_pipe_data));
 	// How many Cmd do i have;
 	data->num_command = argc - 3;
+	data->total = argc - 3;
 	data->infile = argv[1];
 	data->outfile = argv[argc - 1];
 	// Init Pipe(2);

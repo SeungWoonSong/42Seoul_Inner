@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:59:33 by susong            #+#    #+#             */
-/*   Updated: 2022/10/02 16:31:57 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/04 22:02:44 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ t_pipe_data *init_data(int argc, char **argv, char **envp)
 	data->operand[data->num_command] = 0;
 	// make operand array;
 	// make operand option;
-	data->option  = make_option(data, &argv);
 	path = make_path(envp);
 	while(index < data->num_command)
 	{
 		data->operand[index] = check_path(argv[index + 2], path);
 		index++;
 	}
+	data->option  = make_option(data, &argv);
 	free_array(path);
 	return(data);
 }
@@ -63,17 +63,25 @@ char *check_path(char *argv, char **envp)
 	int		index_envp;
 	char	*check_array;
 	char	**envp_list;
+	char	**temp;
 
 	index_envp = 0;
 	check_array = 0;
 	//envp already fixed;
 	while(envp[index_envp])
 	{
-		check_array = ft_strjoin(envp[index_envp], argv);
+		temp = ft_split(argv, ' ');
+		check_array = ft_strjoin(envp[index_envp], temp[0]);
 		if(access(check_array, X_OK) == 0)
+		{
+			free_array(temp);
 			return(check_array);
+		}
 		else
+		{
+			free_array(temp);
 			safe_free(check_array);
+		}
 		index_envp++;
 	}
 	return(argv);
@@ -97,21 +105,23 @@ char **make_path(char **envp)
 	return(result);
 }
 
-char **make_option(t_pipe_data *data, char ***argv)
+char ***make_option(t_pipe_data *data, char ***argv)
 {
 	int index;
 	int index_argv;
+	char *temp;
 
 	index = 0;
 	index_argv = 0;
-	data->option = (char **)malloc(sizeof(char *) * (data->num_command + 1));
+	data->option = (char ***)malloc(sizeof(char **) * (data->num_command + 1));
 	data->option[data->num_command] = 0;
 	while(index < data->num_command)
 	{
-		while((*argv)[index + 2][index_argv] != ' ')
-			index_argv++;
-		(*argv)[index + 2][index_argv] = 0;
-		data->option[index] = ft_substr((*argv)[index + 2], index_argv + 1,ft_strlen((*argv)[index + 2]) - index_argv);		index++;
+		data->option[index] = ft_split((*argv)[index + 2], ' ');
+		temp = data->option[index][0];
+		data->option[index][0] = ft_strjoin("",data->operand[index]);
+		safe_free(temp);
+		index++;
 	}
 	return (data->option);
 }

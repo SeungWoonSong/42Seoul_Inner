@@ -1,0 +1,11 @@
+total 136
+drwxr-xr-x  10 susong  2020_seoul    340 Oct  4 22:14 .
+drwxr-xr-x  19 susong  2020_seoul    646 Sep 27 09:07 ..
+-rwxrwxrwx   1 susong  2020_seoul     24 Oct  4 20:45 HELLO.txt
+-rw-r--r--   1 susong  2020_seoul   1385 Oct  4 21:09 Makefile
+-rw-r--r--   1 susong  2020_seoul    553 Oct  4 22:14 OUT
+drwxr-xr-x   3 susong  2020_seoul    102 Sep 27 09:16 include
+-rw-r--r--   1 susong  2020_seoul      0 Oct  4 22:14 out2
+-rwxr-xr-x   1 susong  2020_seoul  53640 Oct  4 22:12 pipex
+drwxr-xr-x  17 susong  2020_seoul    578 Oct  4 22:12 src
+drwxr-xr-x  15 susong  2020_seoul    510 Sep 30 18:33 study_test

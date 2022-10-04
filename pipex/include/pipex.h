@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:17:02 by susong            #+#    #+#             */
-/*   Updated: 2022/10/02 16:48:09 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/04 22:05:30 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <sys/wait.h>
 # include <errno.h>
+# include <fcntl.h>
 
 # define STD_IN 0
 # define STD_OUT 1
@@ -29,7 +30,7 @@ typedef struct t_pipe_data
 	int		num_command;
 	int		total;
 	char	**operand;
-	char	**option;
+	char	***option;
 	int		fd[2][2];
 	int		*pid;
 	char	*infile;
@@ -42,14 +43,18 @@ void ft_error(int error_num);
 t_pipe_data *init_data(int argc, char **argv, char **envp);
 char *check_path(char *argv, char **envp);
 char **make_path(char **envp);
-char **make_option(t_pipe_data *data, char ***argv);
+char ***make_option(t_pipe_data *data, char ***argv);
 
 
 //execute_process
 void make_child(t_pipe_data *data, char **envp);
 void execute_process(t_pipe_data *data, char **envp);
-void change_pipe(t_pipe_data *data);
+// void change_pipe(t_pipe_data *data);
+void execute_first(t_pipe_data *data, char **envp);
+void execute_last(t_pipe_data *data, char **envp);
 
+//open_file
+void open_file(t_pipe_data *data);
 
 //util_1
 char	*ft_strdupp(const char *s1, size_t n);

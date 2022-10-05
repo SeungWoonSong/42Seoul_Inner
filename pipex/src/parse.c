@@ -6,20 +6,11 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:59:33 by susong            #+#    #+#             */
-/*   Updated: 2022/10/04 22:02:44 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/05 11:28:44 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-
-// typedef struct t_pipe_data
-// {
-// 	int		num_command;
-// 	char	**operand;
-// 	int		fd[2][2];
-// 	int		*pid;
-// }				t_pipe_data;
-
 
 t_pipe_data *init_data(int argc, char **argv, char **envp)
 {

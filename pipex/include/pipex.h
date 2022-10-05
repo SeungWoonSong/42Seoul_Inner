@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:17:02 by susong            #+#    #+#             */
-/*   Updated: 2022/10/04 22:05:30 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/05 11:20:33 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ typedef struct t_pipe_data
 	char	*outfile;
 }				t_pipe_data;
 
+//main
 void ft_error(int error_num);
+void close_pipe(t_pipe_data *data);
 
 //parse
 t_pipe_data *init_data(int argc, char **argv, char **envp);
@@ -48,10 +50,11 @@ char ***make_option(t_pipe_data *data, char ***argv);
 
 //execute_process
 void make_child(t_pipe_data *data, char **envp);
-void execute_process(t_pipe_data *data, char **envp);
+
 // void change_pipe(t_pipe_data *data);
 void execute_first(t_pipe_data *data, char **envp);
 void execute_last(t_pipe_data *data, char **envp);
+void execute_middle(t_pipe_data *data, char **envp);
 
 //open_file
 void open_file(t_pipe_data *data);
@@ -72,4 +75,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 //util_3
 void free_array(char **array);
+
+//error.c
 #endif

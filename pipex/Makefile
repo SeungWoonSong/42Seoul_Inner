@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/19 16:07:36 by susong            #+#    #+#              #
-#    Updated: 2022/10/05 11:03:39 by susong           ###   ########.fr        #
+#    Updated: 2022/10/25 11:22:17 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,12 @@ SRCS	= src/pipex.c \
 			src/parse.c \
 			src/util_1.c \
 			src/util_2.c \
-			src/util_3.c \
-			src/execute_process.c
+			src/util_3.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
-CC		= gcc -g
+CC		= gcc
 HEADER  = include/pipex.h
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}

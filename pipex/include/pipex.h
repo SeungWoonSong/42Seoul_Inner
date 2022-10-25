@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:17:02 by susong            #+#    #+#             */
-/*   Updated: 2022/10/05 11:44:54 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/25 11:19:11 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct t_pipe_data
 	int		total;
 	char	**operand;
 	char	***option;
-	int		fd[2][2];
+	int		fd[2];
 	int		*pid;
 	char	*infile;
 	char	*outfile;
 }				t_pipe_data;
 
 //main
-void		ft_error(int error_num);
+void		ft_error();
 void		close_pipe(t_pipe_data *data);
 
 //parse

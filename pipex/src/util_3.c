@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:33:45 by susong            #+#    #+#             */
-/*   Updated: 2022/10/05 11:42:23 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/25 11:21:04 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	init_util(t_pipe_data *data, int argc, char **argv, int *index)
 	data->total = argc - 3;
 	data->infile = argv[1];
 	data->outfile = argv[argc - 1];
-	pipe(data->fd[0]);
-	pipe(data->fd[1]);
+	pipe(data->fd);
 	*index = 0;
 }

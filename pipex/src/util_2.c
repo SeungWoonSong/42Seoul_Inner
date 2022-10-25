@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:22:39 by susong            #+#    #+#             */
-/*   Updated: 2022/10/05 11:37:36 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/05 16:15:13 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,21 @@ int	check_string(char *dst, char *obj)
 	int		index_obj;
 
 	index = 0;
-	while (dst[index + ft_strlen(obj)])
+	while (dst[index + (int)ft_strlen(obj)])
 	{
 		index_obj = 0;
 		while (dst[index + index_obj] == obj[index_obj])
 			index_obj += 1;
-		if (index_obj == ft_strlen(obj))
-			return (1);
+		if (index_obj == (int)ft_strlen(obj))
+			return (0);
 		index++;
 	}
-	return (0);
+	return (1);
 }
 
 char	**make_path_2(char **envp)
 {
 	int		index;
-	char	*temp;
 	char	**result;
 
 	index = 0;

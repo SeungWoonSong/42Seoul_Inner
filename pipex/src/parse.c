@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:59:33 by susong            #+#    #+#             */
-/*   Updated: 2022/10/25 11:19:36 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/25 11:31:09 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ t_pipe_data	*init_data(int argc, char **argv, char **envp)
 
 	data = (t_pipe_data *)malloc(sizeof(t_pipe_data));
 	if (!data)
-		ft_error();
+		ft_error(0);
 	init_util(data, argc, argv, &index);
 	data->pid = (int *)malloc(sizeof(int) * (data->num_command + 1));
 	if (!data->pid)
-		ft_error();
+		ft_error(0);
 	data->pid[data->num_command] = 0;
 	data->operand = (char **)malloc(sizeof(char *) * (data->num_command + 1));
 	if (!data->operand)
-		ft_error();
+		ft_error(0);
 	data->operand[data->num_command] = 0;
 	path = make_path(envp);
 	while (index < data->num_command)
@@ -96,7 +96,7 @@ char	***make_option(t_pipe_data *data, char ***argv)
 	index_argv = 0;
 	data->option = (char ***)malloc(sizeof(char **) * (data->num_command + 1));
 	if (!data->option)
-		ft_error();
+		ft_error(0);
 	data->option[data->num_command] = 0;
 	while (index < data->num_command)
 	{

@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 13:19:24 by susong            #+#    #+#             */
-/*   Updated: 2022/08/19 15:19:29 by susong           ###   ########.fr       */
+/*   Updated: 2022/09/29 13:30:49 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
-# include<stdlib.h>
+# include <stdlib.h>
 
 int		ft_printf(const char *s, ...);
 int		ft_print_c(va_list **ap);

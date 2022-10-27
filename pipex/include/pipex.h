@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 09:17:02 by susong            #+#    #+#             */
-/*   Updated: 2022/10/25 11:19:11 by susong           ###   ########.fr       */
+/*   Updated: 2022/10/25 11:30:28 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct t_pipe_data
 }				t_pipe_data;
 
 //main
-void		ft_error();
+void		ft_error(int err);
 void		close_pipe(t_pipe_data *data);
 
 //parse

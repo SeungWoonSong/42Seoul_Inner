@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 09:16:38 by susong            #+#    #+#             */
-/*   Updated: 2022/09/27 10:14:30 by susong           ###   ########.fr       */
+/*   Created: 2022/10/25 13:53:18 by susong            #+#    #+#             */
+/*   Updated: 2022/10/25 13:57:39 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#	ifndef PHILO_H
+# define PHILO_H
 
-int main()
-{
-	int fd[2];
+# include<unistd.h>
+# include<stdio.h>
+# include<pthread.h>
+# include<semaphore.h>
+# include<sys/time.h>
 
-	pipe(fd);
-	int id = fork();
-	if (id == 0)
-	{
-		close(fd[0]);
-		int x;
-		printf("Input number : ");
-		scanf("%d", &x);
-		write(fd[1], &x, sizeof(int));
-		close(fd[1]);
-	}
-	else
-	{
-		close(fd[1]);
-		int y;
-		read(fd[0], &y, sizeof(int));
-		y = y * 100;
-		printf("%d", y);
-		close(fd[0]);
-	}
-}
+
+#	endif

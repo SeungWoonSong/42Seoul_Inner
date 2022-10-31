@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 13:53:27 by susong            #+#    #+#             */
-/*   Updated: 2022/10/31 15:47:41 by susong           ###   ########.fr       */
+/*   Created: 2022/10/31 13:49:00 by susong            #+#    #+#             */
+/*   Updated: 2022/10/31 14:44:16 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-int main(int argc, char **argv)
+void eating(t_philos *philos, int id)
 {
-	t_arg arg;
 
-	if (argc != 5 && argc != 6)
-		return (printf("Argument Error : argument shoud be 5 or 6\n"));
-	memset(&arg, 0, sizeof(arg));
-	if (make_arg_philos(&arg, argc, argv) == 1)
-		return (printf("Argument Error : invalid Value"));
-
+	print_action(philos, "is eating");
+	philos_sleep(philos->time_eat);
+	pthread_mutex_unlock(philos->left_fork);
+	pthread_mutex_unlock(philos->right_fork);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:53:18 by susong            #+#    #+#             */
-/*   Updated: 2022/10/29 22:31:33 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:38:18 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@
 
 typedef struct t_philos
 {
-	int num_meal;
-	int id;
-	int time_die;
-	int time_eat;
-	int time_sleep;
-
+	int num_meal; // 얼마나 지금 먹었는지
+	int id; // 이름
+	int time_die; // 얼마나 버틸 수 있는가?
+	int time_eat; // 먹는 시간
+	int time_sleep; // 자는 시간
+	int must_eat; // 최소 먹어야되는 양
 	pthread_mutex_t *left_fork;
 	pthread_mutex_t *right_fork;
+	pthread_mutex_t *lock_screen;
 
 } t_philos;
 
@@ -64,6 +65,9 @@ int init_screen(t_arg *arg);
 
 // Library
 int ft_atoi(const char *str);
-void print_action(t_arg *arg, char *word);
+void print_action(t_philos *philos, char *word);
 
+// Library2
+long ft_time();
+void philos_sleep(long m_second);
 #endif

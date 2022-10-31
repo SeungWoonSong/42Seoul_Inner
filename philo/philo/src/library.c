@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   library.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+        */
+/*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 20:59:53 by nouswong          #+#    #+#             */
-/*   Updated: 2022/10/29 21:24:57 by nouswong         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:31:19 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ int ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void print_action(t_arg *arg, char *word)
+void print_action(t_philos *philos, char *word)
 {
+	long current_time;
+
+	current_time = ft_time();
+	pthread_mutex_lock(philos->lock_screen);
+	printf("%ld %d %s", current_time, philos->id, word);
+	pthread_mutex_unlock(philos->lock_screen);
+	return ;
 }

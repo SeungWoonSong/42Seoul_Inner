@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+         #
+#    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 13:52:45 by susong            #+#    #+#              #
-#    Updated: 2022/10/29 21:43:57 by nouswong         ###   ########.fr        #
+#    Updated: 2022/10/31 14:17:26 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME	= philo
 SRCS	= src/philo.c \
 				src/library.c \
 				src/parsing.c \
-				src/check.c
+				src/check.c \
+				src/library_2.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 CC		= gcc

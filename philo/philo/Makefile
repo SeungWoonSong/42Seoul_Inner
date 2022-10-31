@@ -3,21 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: nouswong <nouswong@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 13:52:45 by susong            #+#    #+#              #
-#    Updated: 2022/10/25 13:53:13 by susong           ###   ########.fr        #
+#    Updated: 2022/10/29 21:43:57 by nouswong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
-SRCS	= src/philo.c
-
+SRCS	= src/philo.c \
+				src/library.c \
+				src/parsing.c \
+				src/check.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 CC		= gcc
 HEADER  = include/philo.h
-CFLAGS	= -Wall -Wextra -Werror
+# CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}

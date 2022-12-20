@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:35:38 by susong            #+#    #+#             */
-/*   Updated: 2022/12/20 13:51:52 by susong           ###   ########.fr       */
+/*   Updated: 2022/12/20 14:37:25 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	make_philos(t_table *table)
 			NULL, daily_routine, &table->philos[index]);
 		pthread_detach(table->philos[index].philos_thread);
 		index++;
-		usleep(100);
-		// printf("in make_philos %d", index);
+		usleep(200);
 	}
+	watcher(table);
 	return (0);
 }
 

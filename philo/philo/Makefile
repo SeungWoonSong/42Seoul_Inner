@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 13:52:45 by susong            #+#    #+#              #
-#    Updated: 2022/12/20 11:38:34 by susong           ###   ########.fr        #
+#    Updated: 2022/12/20 15:15:59 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ SRCS	= src/philo.c \
 				src/parsing/parsing.c \
 				src/parsing/make_philos.c \
 				src/parsing/check_table.c \
-				src/action/action.c
+				src/action/action.c \
+				src/action/watcher.c \
+				src/library/destroy_free.c
 OBJS	= $(SRCS:.c=.o)
 RM		= rm -f
 CC		= gcc
 HEADER  = include/philo.h
-# CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}

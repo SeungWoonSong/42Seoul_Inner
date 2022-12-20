@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 21:28:01 by nouswong          #+#    #+#             */
-/*   Updated: 2022/12/20 11:07:45 by susong           ###   ########.fr       */
+/*   Updated: 2022/12/20 14:22:25 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	make_table(t_table *table, int argc, char **argv)
 	table->time_eat = ft_atoi(argv[3]);
 	table->time_sleep = ft_atoi(argv[4]);
 	table->dead = 0;
+	table->all_fulfilled = 0;
 	if (argc == 6)
 		table->must_eat = ft_atoi(argv[5]);
 	else

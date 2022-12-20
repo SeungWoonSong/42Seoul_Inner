@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:49:00 by susong            #+#    #+#             */
-/*   Updated: 2022/12/20 13:54:43 by susong           ###   ########.fr       */
+/*   Updated: 2022/12/20 15:36:47 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	eating(t_philos *philos)
 {
 	print_action(philos, "is eating");
+	philos->last_eat = ft_time();
+	philos->meal_counter++;
 	philos_sleep(philos->time_eat);
 	pthread_mutex_unlock(philos->left_fork);
 	pthread_mutex_unlock(philos->right_fork);
@@ -47,11 +49,14 @@ void	*daily_routine(void *argument)
 	t_philos	*philos;
 
 	philos = argument;
-	// printf("we are working,%d\n",philos->name);
 	while (philos->dead == 0 && philos->fulfilled == 0)
 	{
 		taking_forks(philos);
+		if (!(philos->dead == 0 && philos->fulfilled == 0))
+			break ;
 		eating(philos);
+		if (!(philos->dead == 0 && philos->fulfilled == 0))
+			break ;
 		sleeping(philos);
 	}
 	return (0);

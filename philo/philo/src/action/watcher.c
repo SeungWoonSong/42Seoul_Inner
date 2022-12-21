@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:56:59 by susong            #+#    #+#             */
-/*   Updated: 2022/12/20 15:32:03 by susong           ###   ########.fr       */
+/*   Updated: 2022/12/21 15:18:57 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_fulfilled(t_table *table, int *pig_philos, int index)
 	if (table->philos[index].meal_counter >= table->must_eat
 		&& table->must_eat != -1)
 		*pig_philos = *pig_philos + 1;
-	if (*pig_philos == table->num_philos - 1 && table->num_philos != 1)
+	if (*pig_philos == table->num_philos && table->num_philos != 1)
 	{
 		death_sequence2(table);
 		return (1);

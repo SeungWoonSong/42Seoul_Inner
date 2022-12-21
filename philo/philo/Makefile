@@ -6,7 +6,7 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 13:52:45 by susong            #+#    #+#              #
-#    Updated: 2022/12/20 15:15:59 by susong           ###   ########.fr        #
+#    Updated: 2022/12/20 16:51:23 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADER  = include/philo.h
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o :
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}
+	${CC} ${CFLAGS}  -c $< -o ${<:.c=.o} -I ${HEADER}
 
 $(NAME): ${OBJS}
 	$(CC) -o $(NAME) $(OBJS)

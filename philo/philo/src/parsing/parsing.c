@@ -6,7 +6,7 @@
 /*   By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 21:28:01 by nouswong          #+#    #+#             */
-/*   Updated: 2022/12/20 14:22:25 by susong           ###   ########.fr       */
+/*   Updated: 2022/12/20 15:50:22 by susong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	make_table(t_table *table, int argc, char **argv)
 		table->must_eat = ft_atoi(argv[5]);
 	else
 		table->must_eat = -1;
-	check_error = init_forks(table);
-	check_error = init_screen(table);
-	if (check_error == 1)
+	check_error += init_forks(table);
+	check_error += init_screen(table);
+	if (check_error >= 1)
 		return (ERROR);
 	return (0);
 }

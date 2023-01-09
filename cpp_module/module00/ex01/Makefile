@@ -6,13 +6,13 @@
 #    By: susong <susong@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 09:25:35 by susong            #+#    #+#              #
-#    Updated: 2023/01/09 10:18:29 by susong           ###   ########.fr        #
+#    Updated: 2023/01/09 10:43:04 by susong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME		=	PhoneBook
 
-SOURCE		=	megaphone.cpp
+SOURCE		=	main.cpp PhoneBook.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 
